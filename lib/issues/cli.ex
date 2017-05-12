@@ -56,7 +56,7 @@ defmodule Issues.CLI do
   end
 
   def sort_into_ascending_order(list) do
-    Enum.sort list, &(Map.get(&1, "created_at") >= Map.get(&2, "created_at"))
+    Enum.sort list, &(Map.get(&1, "created_at") <= Map.get(&2, "created_at"))
   end
 
 end
