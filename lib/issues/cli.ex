@@ -20,7 +20,7 @@ defmodule Issues.CLI do
   Return a tuple of `{ user, project, count }`, or `:help` if help was given.
   """
   def parse_args(argv) do
-    parse = Option.parser.parse(argv, switches: [ help: :boolean ],
+    parse = OptionParser.parse(argv, switches: [ help: :boolean ],
                                       aliases:  [ h:    :help ])
 
     case parse do
