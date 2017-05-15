@@ -9,7 +9,7 @@ defmodule Issues.CLI do
   table of the last _n_ issues in a github project
   """
 
-  def run(argv) do
+  def main(argv) do
     argv 
     |> parse_args
     |> process
@@ -44,6 +44,7 @@ defmodule Issues.CLI do
     """
   end
 
+  def process({user, project, count}) when is_binary(count) == true, do: process({user, project, (count |> String.to_integer)})
   def process({user, project, count}) do
     Issues.GithubIssues.fetch(user, project)
     |> decode_response
