@@ -36,6 +36,8 @@ defmodule Issues.Mixfile do
       { :poison, "~> 3.0" },
       { :ex_doc, "~> 0.14", only: :dev, runtime: false},
       { :earmark, "~> 1.2.2" },
+      { :excheck, "~> 0.5", only: :test },
+      { :triq, github: "triqng/triq", only: :test },
     ]
   end
 
