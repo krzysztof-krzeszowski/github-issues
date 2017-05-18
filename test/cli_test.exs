@@ -1,5 +1,6 @@
 defmodule CliTest do
   use ExUnit.Case
+  use ExCheck
   doctest Issues
 
   import Issues.CLI, only: [ 
@@ -24,6 +25,14 @@ defmodule CliTest do
     result = sort_into_ascending_order(fake_created_at_list(~w{c a b}))
     issues = for issue <- result, do: Map.get(issue, "created_at")
     assert issues == ~w{a b c}
+  end
+
+  describe "property check" do
+    property "simple test" do
+      for_all number in real() do
+        parse_args(["user", "project", number]) == { "user", "project", number }
+      end
+    end
   end
 
   defp fake_created_at_list(values) do
