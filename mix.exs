@@ -38,6 +38,7 @@ defmodule Issues.Mixfile do
       { :earmark, "~> 1.2.2" },
       { :excheck, "~> 0.5", only: :test },
       { :triq, github: "triqng/triq", only: :test },
+      { :excoveralls, "~> 0.6", only: :test },
     ]
   end
 
